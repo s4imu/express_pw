@@ -14,6 +14,10 @@ app.engine("handlebars", handlebars.engine())
 app.set("view engine", "handlebars")
 app.set("views", `${__dirname}/views`)
 
+app.engine("handlebars", handlebars.engine({
+    helpers: require(`${__dirname}/views/helpers/helpers.js`)
+}))
+
  app.use(logger())
 
  app.use("/img", express.static(`${__dirname}/../public/img`))
