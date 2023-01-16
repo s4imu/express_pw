@@ -10,6 +10,11 @@ app.use ((req, res, next) => {
      next()
  })
 
+ app.use('/js', [
+    express.static(__dirname + '/node_modules/bootstrap/dist/js/'),
+    express.static(__dirname + '/public/js')
+    ])
+
 app.engine("handlebars", handlebars.engine())
 app.set("view engine", "handlebars")
 app.set("views", `${__dirname}/views`)
